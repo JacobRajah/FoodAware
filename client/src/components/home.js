@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Nav from './navbar/navigation'
 
 class Home extends Component {
     constructor(props) {
@@ -17,13 +18,10 @@ class Home extends Component {
 
     render() {
        return(
-           <ul>
-               {this.state.customers.map((e,i) => {
-                   return(
-                    <li>{e.firstName} {e.lastName}</li>
-                   );
-               })}
-           </ul>
+           <div>
+                <Nav></Nav>
+                Food Aware
+           </div>
        )
     }
 }
