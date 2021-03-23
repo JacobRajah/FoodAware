@@ -5,6 +5,9 @@ var path = require('path');
 const port = process.env.PORT || 5000 ;
 const app = express();
 app.use(bodyParser.json());
+const userAuth = require('./server/userAuth');
+const e = require('express');
+var currUser = "unset";
 
 /* Functions for when using built version of React scripts. 
    if you want to test production execute <npm run build> then
@@ -15,20 +18,30 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
 
-app.get('/api/customers', (req, res) => {
-    const customers = [
-        {id: 1, firstName: 'Jacob', lastName: 'Rajah'},
-        {id: 2, firstName: 'Bob', lastName: 'Markle'},
-        {id: 3, firstName: 'Clark', lastName: 'Kent'}
-    ];
-    res.send(customers);
-
+app.get('/user', (req, res) => {
+    console.log(currUser)
+    res.send(currUser);
 });
 
-app.post('/user', (req, res) => {
+app.post('/register', (req, res) => {
     const userInfo = req.body;
-    console.log(userInfo);
+    userAuth.newUser(userInfo);
+    currUser = userInfo; //Store current
     res.send('Data logged')
+});
+
+app.post('/SSO', (req, res) => {
+    const userInfo = req.body;
+    userAuth.signIn(userInfo).then(response => 
+        {
+            if (response == null) {
+                res.send('invalid');
+            }
+            else {
+                currUser = response //Store current
+                res.send('validated')
+            }
+        })
 })
 
 
