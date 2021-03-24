@@ -27,7 +27,7 @@ app.post('/register', (req, res) => {
     const userInfo = req.body;
     userAuth.newUser(userInfo);
     currUser = userInfo; //Store current
-    res.send('Data logged')
+    res.send('validated')
 });
 
 app.post('/SSO', (req, res) => {

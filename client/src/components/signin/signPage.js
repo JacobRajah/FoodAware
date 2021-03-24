@@ -48,7 +48,7 @@ class Login extends Component {
             password: hash1.hex()
         }
         axios.post('/register', data).then(res => {
-            console.log(res.data)
+            this.setState({valid: res.data})
         });
     }
 

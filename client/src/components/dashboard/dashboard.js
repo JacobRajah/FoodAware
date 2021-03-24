@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Nav from '../navbar/navigation'
-
-class Main extends Component {
+// Logged on Dashboard for User
+class Dashboard extends Component {
     constructor(props) {
         super();
         this.state = {
@@ -20,9 +20,10 @@ class Main extends Component {
        return(
            <div>
                 <Nav></Nav>
+                <p>This is the users dashboard</p>
            </div>
        )
     }
 }
 
-export default Main
+export default Dashboard

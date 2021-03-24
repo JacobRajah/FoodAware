@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './navigation.css';
-import { Link } from 'react-router-dom'
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 class Nav extends Component {
     constructor(props) {
@@ -22,17 +23,30 @@ class Nav extends Component {
     }
 
     render(){
+        if(this.state.SO){
+            return(
+                <div className="nav">
+                   <a href="/">FoodAware</a> 
+                   <a href="/forum">Forums</a>
+                   <div className="dropdown">
+                    <button className="redirect3">Hi {this.state.user.fName}! 
+                        <FontAwesomeIcon icon={faCaretDown}/>
+                    </button>
+                    <div className="dropdown-select">
+                        <a href="/home">Dashboard</a>
+                        <a href="./">Home</a>
+                        <a href="./">Sign Out</a>
+                    </div>
+                   </div>
+                   
+                </div>
+            )
+        }
         return(
             <div className="nav">
-               <p className="redirect1">FoodAware</p> 
-               <p className="redirect2">Forums</p>
-               {this.state.SO ? 
-                <p className="redirect3">Hi {this.state.user.fName}!</p>
-                :
-                <Link to={'/login'}>
-                    <p className="redirect3">Sign In</p>
-                </Link>
-               }
+               <a href="/">FoodAware</a> 
+               <a href="/forum">Forums</a>
+               <a href="/login">Sign In</a>
             </div>
         )
     }

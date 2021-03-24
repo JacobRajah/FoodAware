@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Nav from './navbar/navigation'
-
+// Main generic page for non signed in
 class Home extends Component {
     constructor(props) {
         super();
@@ -20,7 +20,7 @@ class Home extends Component {
        return(
            <div>
                 <Nav></Nav>
-                Food Aware
+                <p>This is the home page</p>
            </div>
        )
     }
