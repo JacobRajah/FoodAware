@@ -29,7 +29,7 @@
     margin: 0;
 }
 
-.nav a:hover, .dropdown:hover .dropbtn {
+.nav a:hover, .dropdown:hover .dropbtn .redirect3:hover {
     background-color: red;
 }
 

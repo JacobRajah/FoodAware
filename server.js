@@ -23,6 +23,12 @@ app.get('/user', (req, res) => {
     res.send(currUser);
 });
 
+app.get('/signout', (req, res) => {
+    currUser = "unset";
+    console.log("Sign Out");
+    res.send("success");
+})
+
 app.post('/register', (req, res) => {
     const userInfo = req.body;
     userAuth.newUser(userInfo);

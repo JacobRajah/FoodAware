@@ -11,6 +11,7 @@ class Nav extends Component {
             user: {},
             SO: false
         }
+        this.signOut = this.signOut.bind(this);
     }
 
     componentDidMount() {
@@ -19,6 +20,13 @@ class Nav extends Component {
             if(res.data !== "unset") {
                 this.setState({SO: true});
             }
+        })
+    }
+
+    signOut() {
+        axios.get('/signout').then(res => {
+            this.setState({ user: {} });
+            this.setState({SO: false});
         })
     }
 
@@ -34,8 +42,8 @@ class Nav extends Component {
                     </button>
                     <div className="dropdown-select">
                         <a href="/home">Dashboard</a>
-                        <a href="./">Home</a>
-                        <a href="./">Sign Out</a>
+                        <a href="/">Home</a>
+                        <a href="/" onClick={this.signOut}>Sign Out</a>
                     </div>
                    </div>
                    
