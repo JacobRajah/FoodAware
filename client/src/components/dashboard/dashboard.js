@@ -6,13 +6,13 @@ class Dashboard extends Component {
     constructor(props) {
         super();
         this.state = {
-            customers: []
+            user: {}
         };
     }
 
     componentDidMount() {
-        axios.get('/api/customers').then(res => {
-            this.setState({customers: res.data});
+        axios.get('/user').then(res => {
+            this.setState({user: res.data});
         })
     }
 
@@ -21,6 +21,9 @@ class Dashboard extends Component {
            <div>
                 <Nav></Nav>
                 <p>This is the users dashboard</p>
+                {this.state.user !== {} && this.state.user.grocer === true ? 
+                    <p>Grocer: True</p>: 
+                    <p>Grocer: False</p>}
            </div>
        )
     }

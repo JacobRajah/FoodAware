@@ -14,6 +14,7 @@ class Login extends Component {
             lName: '',
             email: '',
             password: '',
+            grocer: false,
             valid: ''
         };
 
@@ -21,6 +22,10 @@ class Login extends Component {
         this.handleChange_lName = this.handleChange_lName.bind(this);
         this.handleChange_email = this.handleChange_email.bind(this);
         this.handleChange_pwd = this.handleChange_pwd.bind(this);
+    }
+
+    handleChange_grocer = (event) => {
+        this.setState({grocer: event.target.checked});
     }
 
     handleChange_fName(event) {
@@ -45,6 +50,7 @@ class Login extends Component {
             fName: this.state.fName,
             lName: this.state.lName,
             email: this.state.email,
+            grocer: this.state.grocer,
             password: hash1.hex()
         }
         axios.post('/register', data).then(res => {
@@ -83,12 +89,14 @@ class Login extends Component {
                     onChange={this.handleChange_email}></input><br></br>
                     <input type="password" placeholder="Password"
                     onChange={this.handleChange_pwd}></input><br></br>
+                    <p>Are you a grocer?
+                    <input type="checkbox" onClick={this.handleChange_grocer}
+                        defaultChecked={this.state.grocer}>
+                    </input>
+                    </p><br></br>
                     <input type="submit"></input>
                 </form>
-                <div>{this.state.fName}</div>
-                <div>{this.state.lName}</div>
-                <div>{this.state.email}</div>
-                <div>{this.state.password}</div>
+                
                 <h1>Sign In</h1>
                 <form onSubmit={this.handleSumbitSO}>
                     <input type="email" placeholder="Email"
