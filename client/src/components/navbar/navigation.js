@@ -3,6 +3,7 @@ import './navigation.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import Logo from '../../images/Logo.png'
 
 class Nav extends Component {
     constructor(props) {
@@ -34,27 +35,26 @@ class Nav extends Component {
         if(this.state.SO){
             return(
                 <div className="nav">
-                   <a href="/">FoodAware</a> 
-                   <a href="/forum">Forums</a>
-                   <div className="dropdown">
-                    <button className="redirect3">Hi {this.state.user.fName}! 
-                        <FontAwesomeIcon icon={faCaretDown}/>
-                    </button>
-                    <div className="dropdown-select">
-                        <a href="/home">Dashboard</a>
-                        <a href="/">Home</a>
-                        <a href="/" onClick={this.signOut}>Sign Out</a>
+                    <img src={Logo} alt=""></img>
+                    <a href="/">FoodAware</a> 
+                    <a href="/forum">Forums</a>
+                    <div className="dropdown">
+                        <button className="redirect3">Hi {this.state.user.fName}!  <FontAwesomeIcon icon={faCaretDown}/></button>
+                        <div className="dropdown-select">
+                            <a href="/home">Dashboard</a>
+                            <a href="/">Home</a>
+                            <a href="/" onClick={this.signOut}>Sign Out</a>
+                        </div>
                     </div>
-                   </div>
-                   
                 </div>
             )
         }
         return(
             <div className="nav">
-               <a href="/">FoodAware</a> 
-               <a href="/forum">Forums</a>
-               <a href="/login">Sign In</a>
+                <img src={Logo} alt=""></img> 
+                <a href="/">FoodAware</a> 
+                <a href="/forum">Forums</a>
+                <a href="/login">Sign In</a>
             </div>
         )
     }
