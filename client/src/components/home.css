@@ -1,0 +1,35 @@
+.front-photo {
+    width: 100%;
+    height: auto;
+}
+
+.goal {
+    float: left;
+    position: absolute;
+    left: 42%;
+    top: 40%;
+    background-color: #91be09;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 65px;
+    font-weight: bold;
+}
+
+.stats {
+    background-color: #91be09;
+    height: 110px;
+}
+
+.box {
+    display: inline-block;
+    padding: 5.1px;
+    margin: 9px;
+    background-color: rgb(77, 77, 77);
+    width: 23%;
+    height: 80px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    line-height: 50%;
+}

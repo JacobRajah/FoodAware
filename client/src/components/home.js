@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Nav from './navbar/navigation'
+import Front from '../images/cover.webp'
+import './home.css'
 // Main generic page for non signed in
 class Home extends Component {
     constructor(props) {
@@ -20,7 +22,27 @@ class Home extends Component {
        return(
            <div>
                 <Nav></Nav>
-                <p>This is the home page</p>
+                <img src={Front} alt="" className="front-photo"></img>
+                <div className="goal">Fighting<br></br>Hunger.</div>
+                <div className="stats">
+                    yeet
+                    {/* <div className="box">
+                        3000<br/>
+                        <p>Grocers Connected</p>
+                    </div>
+                    <div className="box">
+                        3000<br/>
+                        <p>Grocers Connected</p>
+                    </div>
+                    <div className="box">
+                        3000<br/>
+                        <p>Grocers Connected</p>
+                    </div>
+                    <div className="box">
+                        3000<br/>
+                        <p>Grocers Connected</p>
+                    </div> */}
+                </div>
            </div>
        )
     }
