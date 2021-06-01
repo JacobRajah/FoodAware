@@ -20,16 +20,15 @@ class Home extends Component {
 
     render() {
        return(
-           <div>
+           <div className="home">
                 <Nav></Nav>
-                <img src={Front} alt="" className="front-photo"></img>
-                <div className="goal">Fighting<br></br>Hunger.</div>
+                <div className="face">
+                    <img src={Front} alt="" className="front-photo"></img>
+                    <div className="goal">
+                        Fighting<br></br>Hunger.
+                    </div>
+                </div>
                 <div className="stats">
-                    yeet
-                    {/* <div className="box">
-                        3000<br/>
-                        <p>Grocers Connected</p>
-                    </div>
                     <div className="box">
                         3000<br/>
                         <p>Grocers Connected</p>
@@ -41,7 +40,11 @@ class Home extends Component {
                     <div className="box">
                         3000<br/>
                         <p>Grocers Connected</p>
-                    </div> */}
+                    </div>
+                    <div className="box">
+                        3000<br/>
+                        <p>Grocers Connected</p>
+                    </div>
                 </div>
            </div>
        )
